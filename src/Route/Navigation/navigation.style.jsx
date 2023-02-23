@@ -28,7 +28,11 @@ export const Brand = styled.span`
     a{
         color: #D5CEA3;
     }
-    &:hover{
-        transform: scale(1.02);
+    a:hover{
+        color: white;
     }
+`
+
+export const PageContainer = styled.div`
+    padding-bottom: 300px;
 `

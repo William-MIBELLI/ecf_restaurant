@@ -24,16 +24,16 @@ const Card = () => {
             <Header headerContent={headerContent}/>
             <CardContainer>
                 <Title>Nos Entrées</Title>
-                {starters.map(item => 
-                    <Plate key={item.id} item={item}/>
+                {starters.map((item, index) => 
+                    <Plate key={item.id} item={item} index={index}/>
                 )}
                 <Title>Nos Plats</Title>
-                {mains.map(item => 
-                    <Plate key={item.id} item={item}/>
+                {mains.map((item, index) => 
+                    <Plate key={item.id} item={item} index={index}/>
                 )}
                 <Title>Nos Desserts</Title>
-                {desserts.map(item => 
-                    <Plate key={item.id} item={item}/>
+                {desserts.map((item, index) => 
+                    <Plate key={item.id} item={item} index={index}/>
                 )}
             </CardContainer>
         </Fragment>

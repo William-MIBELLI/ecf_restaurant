@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const MenuContainer = styled.div`
-    width: 60%;
+    width: 100%;
     margin: 20px auto;
     text-align: center;
     box-shadow: 5px 5px 15px grey;

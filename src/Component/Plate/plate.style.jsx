@@ -27,4 +27,9 @@ export const PlateDescriptionContainer = styled.div`
     box-shadow: 5px 5px 15px grey;
 `
 
+export const InvertedPlateContainer = styled(PlateContainer)`
+    align-items: flex-end;
+    background-position: left;
+`
+
 

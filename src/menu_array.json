@@ -4,7 +4,7 @@
         "name": "Menu rapido",
         "description": "Entrée + plat OU plat + dessert",
         "price": 20,
-        "availability": "du lundi au samedi soir"
+        "availability": "du lundi au vendredi midi"
     },
     {
         "id": 2,

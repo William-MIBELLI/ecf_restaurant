@@ -1,22 +1,30 @@
-import { PlateContainer, PlateDescriptionContainer } from './plate.style'
+import { PlateContainer, PlateDescriptionContainer, InvertedPlateContainer } from './plate.style'
 import Description from '../Description/description'
 
 
-const Plate = ({ item }) => {
+const Plate = ({ item, index }) => {
 
-    const { name, id, description, price, imgUrl, ingredients } = item
+    const { name, description, price, imgUrl } = item
 
+    const getPlate = (index) => {
+        if(index%2){
+            return PlateContainer
+        }
+        return InvertedPlateContainer
+    }
+
+    const CustomContainer = getPlate(index)
 
     return (
-        <PlateContainer imgUrl={imgUrl}>
+        <CustomContainer imgUrl={imgUrl}>
             <PlateDescriptionContainer>
-                <Description
+                <Description 
                     title={name}
                     subTitle={description}
                     content={price+'€'}
                 />
             </PlateDescriptionContainer>
-        </PlateContainer>
+        </CustomContainer>
     )
 }
 

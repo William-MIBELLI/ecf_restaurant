@@ -3,12 +3,11 @@ import { useSelector } from 'react-redux'
 import Header from '../../Component/Header/header'
 import Menu from '../../Component/Menu/menu'
 import { getMenuSelector } from '../../store/menu/menu.selector'
-import {} from './menus.style'
+import { MenusContainer } from './menus.style'
 
 const Menus = () => {
 
     const menus = useSelector(getMenuSelector)
-    console.log('menus : ', menus)
 
     const headerContent = {
         imgUrl:'https://images.unsplash.com/photo-1560717845-968823efbee1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
@@ -21,9 +20,11 @@ const Menus = () => {
     return (
         <Fragment>
             <Header headerContent={headerContent}/>
-            {menus.map(item => {
-                return (<Menu menu={item}/>)
-            })}
+            <MenusContainer>
+                {menus.map(item => {
+                    return (<Menu menu={item}/>)
+                })}
+            </MenusContainer>
         </Fragment>
     )
 }

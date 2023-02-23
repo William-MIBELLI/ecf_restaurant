@@ -1,0 +1,4 @@
+
+export const SCHEDULE_ACTION_TYPE = {
+    UPDATE_DAY: 'UPDATE_DAY'
+}

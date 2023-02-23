@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Lundi",
+        "lunch": "11h30 - 13h30",
+        "dinner": "19h00 - 21h30"
+    },
+    {
+        "name": "Mardi",
+        "lunch": "11h30 - 13h30",
+        "dinner": "19h00 - 21h30"
+    },
+    {
+        "name": "Mercredi",
+        "lunch": "FERME",
+        "dinner": "FERME"
+    },
+    {
+        "name": "Jeudi",
+        "lunch": "11h30 - 13h30",
+        "dinner": "19h00 - 21h30"
+    },
+    {
+        "name": "Vendredi",
+        "lunch": "11h30 - 13h30",
+        "dinner": "19h00 - 21h30"
+    },
+    {
+        "name": "Samedi",
+        "lunch": "11h30 - 13h30",
+        "dinner": "19h00 - 21h30"
+    },
+    {
+        "name": "Dimanche",
+        "lunch": "11h30 - 13h30",
+        "dinner": "FERME"
+    }
+]
