@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Menu rapido",
+        "description": "Entrée + plat OU plat + dessert",
+        "price": 20,
+        "availability": "du lundi au samedi soir"
+    },
+    {
+        "id": 2,
+        "name": "Menu Glouton",
+        "description": "Entrée + plat + dessert",
+        "price": 25,
+        "availability": "du lundi au samedi soir"
+    },
+    {
+        "id": 3,
+        "name": "Menu Kids",
+        "description": "steak-frites ou nuggets-frites + dessert",
+        "price": 13,
+        "availability": "Toute la semaine"
+    }
+]

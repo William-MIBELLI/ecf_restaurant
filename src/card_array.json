@@ -1,0 +1,101 @@
+[
+    {
+        "id":1,
+        "name": "Salade de chèvre chaud",
+        "type":"starter",
+        "imgUrl": "https://images.unsplash.com/photo-1547496502-affa22d38842?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=977&q=80",
+        "ingredients" : [
+            "salade","tomate", "oignon", "chèvre", "miel"
+        ],
+        "description" : "Salade Composée avec des tartines au chèvre chaud et au miel",
+        "price": 18
+    },
+    {
+        "id":2,
+        "name": "Salade Niçoise",
+        "type":"starter",
+        "imgUrl":"https://images.unsplash.com/photo-1561043433-aaf687c4cf04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "ingredients" : [
+            "salade","tomate", "oignon", "olive", "thon"
+        ],
+        "description" : "Salade Composée typique de la région de Nice",
+        "price": 15
+    },
+    {
+        "id":3,
+        "name": "Tartines de foie-gras",
+        "type":"starter",
+        "imgUrl":"https://images.unsplash.com/photo-1673912401286-28ca0dbd17fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=742&q=80",
+        "ingredients" : [
+            "pain","foie-gras", "confiture de figue", "salade"
+        ],
+        "description" : "Délicates tranches de foie-gras accompagnées de sa confiture de figue",
+        "price": 17
+    },
+    {
+        "id":4,
+        "name": "French Burger",
+        "type":"main",
+        "imgUrl":"https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+        "ingredients" : [
+            "salade","tomate", "oignon", "steak-haché", "sauce", "pomme de terre"
+        ],
+        "description" : "Un hamburger 'Made In France' accompagné de ses frites maisons !",
+        "price": 25
+    },
+    {
+        "id":5,
+        "name": "Saumon Pané",
+        "type":"main",
+        "imgUrl":"https://images.unsplash.com/photo-1580218863909-d882fbb62d7b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
+        "ingredients" : [
+            "saumon","panure", "haricot vert", "brocolis"
+        ],
+        "description" : "Un délicieu filet de saumon pané sur son lit de petit légumes vert",
+        "price": 22
+    },
+    {
+        "id":6,
+        "name": "Pigeon à la bordelaise",
+        "type":"main",
+        "imgUrl":"https://plus.unsplash.com/premium_photo-1669245207891-430fddea3616?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+        "ingredients" : [
+            "pigeon","sauce tomate", "oignon", "endive", "pomme de terre"
+        ],
+        "description" : "Le raffinement à la bordelaise",
+        "price": 31
+    },
+    {
+        "id":7,
+        "name": "Tarte aux fruits",
+        "type":"dessert",
+        "imgUrl":"https://images.unsplash.com/photo-1620980776848-84ac10194945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+        "ingredients" : [
+            "pate sablée","framboise", "fraise", "myrtilles"
+        ],
+        "description" : "Une tarte légère, idéale pour finir le repas",
+        "price": 11
+    },
+    {
+        "id":8,
+        "name": "Crèpe Nutella-chantilly",
+        "type":"dessert",
+        "imgUrl":"https://images.unsplash.com/photo-1565087170449-fa23854a6100?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+        "ingredients" : [
+            "crèpe","Nutella", "chantilly"
+        ],
+        "description" : "Pour les gourmands qui ont encore faim !",
+        "price": 9
+    },
+    {
+        "id":9,
+        "name": "Café gourmand",
+        "type":"dessert",
+        "imgUrl":"https://images.unsplash.com/photo-1656225936391-e3408342010d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "ingredients" : [
+            "café", "maccarons", "tarte"
+        ],
+        "description" : "Un assortiment de petites douceurs, pour celles et ceux qui n'arrivent pas à se décider",
+        "price": 12
+    }
+]

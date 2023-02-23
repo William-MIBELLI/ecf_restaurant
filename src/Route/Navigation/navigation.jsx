@@ -8,10 +8,13 @@ const Navigation = () => {
         <div>
             <NavigationContainer>
                 <Brand>
-                    <Link to='/'>Le Quai Antique</Link>
+                    <Link to='/'>QA</Link>
                 </Brand>
                 <Link to='/menu'>
                     <NavLink text={'Menu'}/>
+                </Link>
+                <Link to='/card'>
+                    <NavLink text={'La carte'}/>
                 </Link>
                 <Link to='/reservation'>
                     <NavLink text={'Reservation'}/>

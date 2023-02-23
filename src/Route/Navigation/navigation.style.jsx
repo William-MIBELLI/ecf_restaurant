@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const NavigationContainer = styled.div`
     background: black;
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 60px;
     color: white;
@@ -21,8 +23,12 @@ export const Brand = styled.span`
     margin-right: auto;
     margin-left: 30px;
     font-family: 'Great Vibes', cursive;
+    letter-spacing: -12px;
     
     a{
         color: #D5CEA3;
+    }
+    &:hover{
+        transform: scale(1.02);
     }
 `
