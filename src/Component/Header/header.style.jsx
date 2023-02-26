@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
     background-image: url(${props => props.imgUrl});
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     height: 600px;
 
     h1{
@@ -14,6 +15,15 @@ export const HeaderContainer = styled.div`
         padding-top: 80px;
         padding-left: 80px;
         text-shadow: 5px 5px 10px black;
+    }
+
+    @media screen and (max-width : 1100px){
+        text-align: center;
+
+        h1{
+            padding: 50px 0;
+            font-size: 7rem;
+        }
     }
 
 `
@@ -28,4 +38,8 @@ export const HeaderDescription = styled.div`
     justify-content: left;
     background-color: white;
     padding: 20px;
+
+    @media screen and (max-width: 1100px){
+        width: 80%;
+    }
 `

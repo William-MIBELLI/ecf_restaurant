@@ -12,6 +12,9 @@ export const SocialContainer = styled.div`
         color: white;
         text-align: center;
     }
+    @media screen and (max-width: 1200px){
+        grid-column-start: 1;
+    }
 `
 
 export const SocialIconContainer = styled.div`

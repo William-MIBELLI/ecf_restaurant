@@ -6,12 +6,11 @@ import Day from '../Day/day'
 const Planning = () => {
 
     const schedule = useSelector(getScheduleSelector)
-    console.log('planning : ', schedule)
 
     return (
         <PlanningContainer>
             {schedule.map(item =>{
-                return(<Day day={item}/>)
+                return(<Day day={item} key={item.name}/>)
             })}
         </PlanningContainer>
     )

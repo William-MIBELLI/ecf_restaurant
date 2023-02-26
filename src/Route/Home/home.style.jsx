@@ -16,24 +16,17 @@ export const HomeHeader = styled.div`
     }
 `
 
-export const IntroContainer = styled.div`
-    width: 60%;
-    margin: 0 auto;
-    margin-top: -100px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: left;
-    background-color: white;
-    padding: 20px;
-`
-
 export const LunchDescriptionContainer = styled.article`
     min-height: 500px;
-    width: 70%;
     margin: 40px auto;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
      
+     @media screen and (max-width: 1100px){
+        flex-direction: column;
+     }
 `
 
 export const ImgContainer = styled.img`
@@ -41,6 +34,9 @@ export const ImgContainer = styled.img`
     height: 100%;
     margin-right: 10px;
     background-color: red;
+    @media screen and (max-width: 1100px){
+       width: 100%;
+     }
 `
 export const LunchSideContainer = styled.div`
     display: flex;
@@ -50,11 +46,10 @@ export const LunchSideContainer = styled.div`
 `
 
 export const MenuArticle = styled.article`
-    width: 70%;
     min-height: 600px;
     margin: 120px auto;
     background-image: url(${props => props.imgUrl});
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
@@ -72,5 +67,6 @@ export const MenuDesciptionContainer = styled.div`
     padding: 20px;
 
 `
+
 
 

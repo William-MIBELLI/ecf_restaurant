@@ -4,6 +4,7 @@ import {  getDessertSelector, getMainSelector, getStarterSelector } from '../../
 import Plate from '../../Component/Plate/plate'
 import { Fragment } from 'react'
 import Header from '../../Component/Header/header'
+import PageContainer from '../../Component/Page-Container/pageContainer'
 
 
 const Card = () => {
@@ -22,20 +23,22 @@ const Card = () => {
     return (
         <Fragment>
             <Header headerContent={headerContent}/>
-            <CardContainer>
-                <Title>Nos Entrées</Title>
-                {starters.map((item, index) => 
-                    <Plate key={item.id} item={item} index={index}/>
-                )}
-                <Title>Nos Plats</Title>
-                {mains.map((item, index) => 
-                    <Plate key={item.id} item={item} index={index}/>
-                )}
-                <Title>Nos Desserts</Title>
-                {desserts.map((item, index) => 
-                    <Plate key={item.id} item={item} index={index}/>
-                )}
-            </CardContainer>
+            <PageContainer>
+                <CardContainer>
+                    <Title>Nos Entrées</Title>
+                    {starters.map((item, index) => 
+                        <Plate key={item.id} item={item} index={index}/>
+                    )}
+                    <Title>Nos Plats</Title>
+                    {mains.map((item, index) => 
+                        <Plate key={item.id} item={item} index={index}/>
+                    )}
+                    <Title>Nos Desserts</Title>
+                    {desserts.map((item, index) => 
+                        <Plate key={item.id} item={item} index={index}/>
+                    )}
+                </CardContainer>
+            </PageContainer>
         </Fragment>
     )
 }

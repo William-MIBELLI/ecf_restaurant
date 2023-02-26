@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { useSelector } from 'react-redux'
 import Header from '../../Component/Header/header'
 import Menu from '../../Component/Menu/menu'
+import PageContainer from '../../Component/Page-Container/pageContainer'
 import { getMenuSelector } from '../../store/menu/menu.selector'
 import { MenusContainer } from './menus.style'
 
@@ -20,11 +21,14 @@ const Menus = () => {
     return (
         <Fragment>
             <Header headerContent={headerContent}/>
-            <MenusContainer>
-                {menus.map(item => {
-                    return (<Menu menu={item}/>)
-                })}
-            </MenusContainer>
+            <PageContainer>
+                <MenusContainer>
+                    {menus.map((item, index) => {
+                        return (<Menu key={index} menu={item}/>)
+                    })}
+                </MenusContainer>
+
+            </PageContainer>
         </Fragment>
     )
 }

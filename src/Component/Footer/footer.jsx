@@ -1,13 +1,15 @@
 import Contact from '../Contact/contact'
 import Planning from '../Planning/planning'
 import Social from '../Social/social'
-import { FooterContainer } from './footer.style'
+import { FooterContainer, ContactsContainer } from './footer.style'
 
 const Footer = () => {
     return(
         <FooterContainer>
-            <Social/>
-            <Contact/>
+            <ContactsContainer>
+                <Social/>
+                <Contact/>
+            </ContactsContainer>
             <Planning/>
         </FooterContainer>
     )

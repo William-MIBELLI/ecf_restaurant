@@ -7,6 +7,7 @@ import Description from '../../Component/Description/description'
 import Button from '../../Component/Button/button'
 import { useNavigate } from 'react-router-dom'
 import Header from '../../Component/Header/header'
+import PageContainer from '../../Component/Page-Container/pageContainer'
 
 
 const Home = () => {
@@ -32,30 +33,33 @@ const Home = () => {
     return (
         <Fragment>
             <Header headerContent={headerContent}/>
-            <LunchDescriptionContainer>
-                <ImgContainer src={lunch}></ImgContainer>
-                <LunchSideContainer>
-                    <Description 
-                        title='La cuisine du chef'
-                        subTitle='La magie du naturel'
-                        content='
-                        Chaque plat est une rencontre personnelle qui se poursuit au-delà de la table par un environnement préservé et une quiétude cultivée. Réserver une table au Jardin de Berne*, c’est faire un deuxième voyage.  Les deux hommes ont à cœur de dévoiler tout le potentiel de chaque ingrédient en imaginant des assiettes aux accords lisibles tout en restant naturels, voire presque bruts. Certains arômes, fragiles et fugaces, sont si subtils qu’ils se savourent presque seuls. Leur noble intention est mise au service d’une expérience de plaisir et de dégustation, sublimée par la maîtrise du geste : une véritable ode à l’incroyable savoir-faire de la nature.'
-                    />
-                    <Button clickHandler={clickCardHandler}>La carte</Button>
-                </LunchSideContainer>
-            </LunchDescriptionContainer>
-            <MenuArticle imgUrl={menu}>
-                <MenuDesciptionContainer>
-                    <Description 
-                        title={'Une démarche durable'}
-                        subTitle='Simplement raffinée'
-                        content='Au détour d’un massif de lavande, on découvre les trois potagers du domaine. Sur plus de 3000 m2, légumes, baies, fruits, plantes aromatiques et fleurs sont cultivés dans le respect de l’agriculture biologique.
+            <PageContainer>
+                <LunchDescriptionContainer>
+                    <ImgContainer src={lunch}></ImgContainer>
+                    <LunchSideContainer>
+                        <Description 
+                            title='La cuisine du chef'
+                            subTitle='La magie du naturel'
+                            content='
+                            Chaque plat est une rencontre personnelle qui se poursuit au-delà de la table par un environnement préservé et une quiétude cultivée. Réserver une table au Jardin de Berne*, c’est faire un deuxième voyage.  Les deux hommes ont à cœur de dévoiler tout le potentiel de chaque ingrédient en imaginant des assiettes aux accords lisibles tout en restant naturels, voire presque bruts. '
+                        />
+                        <Button clickHandler={clickCardHandler}>La carte</Button>
+                    </LunchSideContainer>
+                </LunchDescriptionContainer>
+                <MenuArticle imgUrl={menu}>
+                    <MenuDesciptionContainer>
+                        <Description 
+                            title={'Une démarche durable'}
+                            subTitle='Simplement raffinée'
+                            content='Au détour d’un massif de lavande, on découvre les trois potagers du domaine. Sur plus de 3000 m2, légumes, baies, fruits, plantes aromatiques et fleurs sont cultivés dans le respect de l’agriculture biologique.
 
-On compte également quatre mille oliviers qui produisent l’huile d’olive signée Berne, réputée pour son fruité vert.'
-                    />
-                    <Button clickHandler={clickMenuHandler}>Le menu</Button>
-                </MenuDesciptionContainer>
-            </MenuArticle>
+    On compte également quatre mille oliviers qui produisent l’huile d’olive signée Berne, réputée pour son fruité vert.'
+                        />
+                        <Button clickHandler={clickMenuHandler}>Le menu</Button>
+                    </MenuDesciptionContainer>
+                </MenuArticle>
+
+            </PageContainer>
         </Fragment>
     )
 }

@@ -5,5 +5,7 @@ export const PlanningContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     font-size: 0.8rem;
-    width: 12%;
+    min-width: 200px;
+    margin: auto;
+    
 `
