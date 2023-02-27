@@ -1,8 +1,8 @@
 import { NavLinkStyled } from './navLink.style'
 
-const NavLink = ({ text }) => {
+const NavLink = ({ text, clickHandler }) => {
     return (
-        <NavLinkStyled>{text}</NavLinkStyled>
+        <NavLinkStyled onClick={clickHandler}>{text}</NavLinkStyled>
     )
 }
 

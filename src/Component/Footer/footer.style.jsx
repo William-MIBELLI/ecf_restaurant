@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.div`
     width: 100%;
-    min-height: 300px;
+    height: 300px;
     background-color: black;
     position: absolute;
     bottom: 0;
@@ -16,6 +16,7 @@ export const FooterContainer = styled.div`
     @media screen and (max-width: 500px){
         grid-template-columns: 1fr;
         gap: 20px;
+        height: 500px;
     }
 `
 
@@ -33,5 +34,9 @@ export const ContactsContainer = styled.div`
         text-align: center;
     }
 
-    @media
+    @media screen and (max-width: 500px){
+        div {
+            margin-top: 20px;
+        }
+    }
 `

@@ -19,11 +19,16 @@ export const HeaderContainer = styled.div`
 
     @media screen and (max-width : 1100px){
         text-align: center;
+        height: 500px;
 
         h1{
             padding: 50px 0;
             font-size: 7rem;
         }
+    }
+
+    @media screen and (max-width : 768px){
+        height: 350px;
     }
 
 `

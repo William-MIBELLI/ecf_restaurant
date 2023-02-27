@@ -7,7 +7,9 @@ const Account = () => {
     console.log('reservation : ', reservation)
 
     return (
-        <div>Je suis ACCOUNT</div>
+        <div>
+            Je suis ACCOUNT
+        </div>
     )
 }
 

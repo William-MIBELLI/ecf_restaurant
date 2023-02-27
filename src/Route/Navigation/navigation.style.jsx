@@ -18,6 +18,30 @@ export const NavigationContainer = styled.div`
     }
 `
 
+export const NavLinksContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+
+    @media screen and (max-width : 768px){
+        display: none;
+    }
+`
+
+export const NavLinksVerticalContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    
+    a{
+        margin: 20px 0;
+    }
+`
+
 export const Brand = styled.span`
     font-size: 2.5rem;
     margin-right: auto;
@@ -33,6 +57,10 @@ export const Brand = styled.span`
     }
 `
 
-export const PageContainer = styled.div`
+export const BodyContainer = styled.div`
     padding-bottom: 300px;
+
+    @media screen and (max-width: 500px){
+        padding-bottom: 500px;
+    }
 `
