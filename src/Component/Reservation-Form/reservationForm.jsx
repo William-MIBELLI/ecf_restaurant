@@ -7,6 +7,7 @@ import { ReservationFormContainer, ReservationFormBase } from './reservationForm
 import { addNewReservation } from '../../store/reservation/reservation.action'
 import { useDispatch, useSelector } from 'react-redux'
 import { getReservationSelector } from '../../store/reservation/reservation.selector'
+import Form from '../Form/form'
 
 
 const defaultFields = {
@@ -36,8 +37,9 @@ const ReservationForm = () => {
 
     const confirmHandler = (event) => {
         event.preventDefault()
-        const reservation = {...fields, dateValue}
-        dispatch(addNewReservation(temp, reservation))
+        console.log('confirm OK');
+        // const reservation = {...fields, dateValue}
+        // dispatch(addNewReservation(temp, reservation))
     }
 
     const dateChangeHandler = (event) => {
@@ -47,14 +49,15 @@ const ReservationForm = () => {
 
     return (
         <ReservationFormContainer>
-            <ReservationFormBase>
-                {Object.entries(fields).map((item, index) => {
-                    return (<Input key={index} value={item[1]} name={item[0]} onChange={onChangeHandler}/>)
-                })}
-                <Input type='date' min={today} max={maxDayReservation} value={dateValue} onChange={dateChangeHandler}/>
-                <InputSelector optionList={optionList}/>
-                <Button  clickHandler={confirmHandler}>Confirmer</Button>
-            </ReservationFormBase>
+        <Form submitHandler={confirmHandler} buttonText='Confirmer la réservation'>
+            <Input value={fields.lastName} name={'lastName'} label={'Votre nom'} onChange={onChangeHandler}/>
+            <Input value={fields.firstName} name={'firstname'} label={'Votre prénom'} onChange={onChangeHandler}/>
+            <Input value={fields.email} name={'email'} label={'Votre Email'} onChange={onChangeHandler}/>
+            <Input value={fields.phoneNumber} name={'phone'} label={'Votre numéro de téléphone'} onChange={onChangeHandler}/>
+            <Input value={fields.number} name={'number'} label={'Nombre de places'} onChange={onChangeHandler}/>
+            <Input  label={'Date'} type='date' min={today} max={maxDayReservation} value={dateValue} onChange={dateChangeHandler}/>
+            <InputSelector label={'Horaire'} optionList={optionList}/>
+        </Form>
         </ReservationFormContainer>
     )
 }

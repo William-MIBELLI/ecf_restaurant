@@ -1,0 +1,3 @@
+export const USER_ACTION_TYPE = {
+    DISCONNECT_USER: 'DISCONNECT_USER'
+}

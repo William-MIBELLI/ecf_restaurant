@@ -1,8 +1,12 @@
-import { InputBase} from './input.style'
+import { Fragment } from 'react'
+import { InputBase , LabelStyled} from './input.style'
 
-const Input = ({ ...otherProps }) => {
+const Input = ({ label, ...otherProps }) => {
     return (
-        <InputBase {...otherProps}></InputBase>
+        <Fragment>
+            <LabelStyled>{label}</LabelStyled>
+            <InputBase {...otherProps}></InputBase>
+        </Fragment>
     )
 }
 

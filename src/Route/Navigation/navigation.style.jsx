@@ -55,6 +55,12 @@ export const Brand = styled.span`
     a:hover{
         color: white;
     }
+
+    @media screen and (max-width: 768px){
+        a{
+            font-size: 40px;
+        }
+    }
 `
 
 export const BodyContainer = styled.div`

@@ -5,14 +5,14 @@ export const BUTTON_TYPE = {
     inverted: 'inverted'
 }
 
-const getButton = (type = BUTTON_TYPE.base) => ({
+const getButton = (style = BUTTON_TYPE.base) => ({
     [BUTTON_TYPE.base] : BaseButton,
     [BUTTON_TYPE.inverted] : InvertedButton
-}[type])
+}[style])
 
-const Button = ({ children, type, clickHandler }) => {
+const Button = ({ children, clickHandler, style }) => {
 
-    const CustomButton = getButton(type)
+    const CustomButton = getButton(style)
 
     return (
         <CustomButton onClick={clickHandler}>{ children }</CustomButton>

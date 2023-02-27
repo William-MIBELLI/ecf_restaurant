@@ -5,7 +5,7 @@ export const HeaderContainer = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 600px;
+    height: 450px;
 
     h1{
         font-size: 9rem;

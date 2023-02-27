@@ -1,12 +1,17 @@
-import { InputSelectorBase } from './inputSelector.style'
+import { InputSelectorBase, Label, OptionStyled } from './inputSelector.style'
+import { Fragment } from 'react'
 
-const InputSelector = ({ optionList }) => {
+const InputSelector = ({ optionList, label }) => {
     return (
-        <InputSelectorBase>
-            {optionList.map((option, index) => {
-                return ( <option key={index} value={option}>{option}</option>)
-            })}
-        </InputSelectorBase>
+        <Fragment>
+        <Label>{label}</Label>
+            <InputSelectorBase>
+            <OptionStyled disabled={true}>Selectionnez un service</OptionStyled>
+                {optionList.map((option, index) => {
+                    return ( <OptionStyled key={index} value={option}>{option}</OptionStyled>)
+                })}
+            </InputSelectorBase>
+        </Fragment>
     )
 }
 
