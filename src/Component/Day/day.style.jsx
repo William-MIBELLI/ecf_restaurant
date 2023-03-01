@@ -20,4 +20,5 @@ export const DayOpenList = styled.div`
     flex-direction: column;
     margin-left: auto;
     color: white;
+    align-items: flex-end;
 `

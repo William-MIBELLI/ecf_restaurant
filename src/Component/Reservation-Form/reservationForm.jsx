@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { getFormatedDate } from '../../Services/helper'
-import Button from '../Button/button'
 import InputSelector from '../Input-Selector/inputSelector'
 import Input from '../Input/input'
-import { ReservationFormContainer, ReservationFormBase } from './reservationForm.style'
+import { ReservationFormContainer } from './reservationForm.style'
 import { addNewReservation } from '../../store/reservation/reservation.action'
 import { useDispatch, useSelector } from 'react-redux'
 import { getReservationSelector } from '../../store/reservation/reservation.selector'
@@ -38,8 +37,8 @@ const ReservationForm = () => {
     const confirmHandler = (event) => {
         event.preventDefault()
         console.log('confirm OK');
-        // const reservation = {...fields, dateValue}
-        // dispatch(addNewReservation(temp, reservation))
+        const reservation = {...fields, dateValue}
+        dispatch(addNewReservation(temp, reservation))
     }
 
     const dateChangeHandler = (event) => {

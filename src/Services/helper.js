@@ -12,3 +12,17 @@ export const createAction = (type, payload) => {
     const action = {type: type, payload: payload}
     return action
 }
+
+export const getEmptyObject = (object) => {
+
+    const id = Math.random()
+    const newObj = {id: id}
+
+    for(const item in object){
+        if(item !== 'id'){
+            newObj[item] = ''
+        }
+    }
+    console.log(newObj)
+    return newObj
+}

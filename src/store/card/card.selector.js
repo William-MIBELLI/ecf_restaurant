@@ -1,22 +1,22 @@
 
-export const CardSelector = state => {
-    return state.card
+export const getCardSelector = state => {
+    return state.card.card
 }
 
 export const getStarterSelector = state => {
-    const starters = state.card.filter(item => item.type === 'starter')
+    const starters = state.card.card.filter(item => item.type === 'starter')
 
     return starters
 }
 
 export const getMainSelector = state => {
-    const mains = state.card.filter(item => item.type === 'main')
+    const mains = state.card.card.filter(item => item.type === 'main')
 
     return mains
 }
 
 export const getDessertSelector = state => {
-    const desserts = state.card.filter(item => item.type === 'dessert')
+    const desserts = state.card.card.filter(item => item.type === 'dessert')
 
     return desserts
 }

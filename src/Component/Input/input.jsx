@@ -5,7 +5,7 @@ const Input = ({ label, ...otherProps }) => {
     return (
         <Fragment>
             <LabelStyled>{label}</LabelStyled>
-            <InputBase {...otherProps}></InputBase>
+            <InputBase required {...otherProps}></InputBase>
         </Fragment>
     )
 }

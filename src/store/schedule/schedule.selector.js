@@ -1,4 +1,4 @@
 
 export const getScheduleSelector = state => {
-    return state.schedule
+    return state.schedule.schedule
 }

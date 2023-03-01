@@ -1,12 +1,12 @@
 import { InputSelectorBase, Label, OptionStyled } from './inputSelector.style'
 import { Fragment } from 'react'
 
-const InputSelector = ({ optionList, label }) => {
+const InputSelector = ({ optionList, defaultOptionText = 'Choisissez une option', label, ...otherProps }) => {
     return (
         <Fragment>
         <Label>{label}</Label>
-            <InputSelectorBase>
-            <OptionStyled disabled={true}>Selectionnez un service</OptionStyled>
+            <InputSelectorBase {...otherProps}>
+            <OptionStyled  selected disabled value=''>{defaultOptionText}</OptionStyled>
                 {optionList.map((option, index) => {
                     return ( <OptionStyled key={index} value={option}>{option}</OptionStyled>)
                 })}
@@ -15,4 +15,4 @@ const InputSelector = ({ optionList, label }) => {
     )
 }
 
-export default InputSelector
+export default InputSelector 

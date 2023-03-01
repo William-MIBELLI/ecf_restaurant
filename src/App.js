@@ -7,6 +7,7 @@ import Reservation from './Route/Reservation/reservation';
 import Account from './Route/Account/account';
 import Card from './Route/Card/card';
 import LogIn from './Route/Log-in/logIn';
+import Admin from './Route/Admin/admin';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='reservation' element={<Reservation/>}/>
         <Route path='account' element={<Account/>}/>
         <Route path='login' element={<LogIn/>}/>
+        <Route path='admin' element={<Admin/>}/>
       </Route>
     </Routes>
   );

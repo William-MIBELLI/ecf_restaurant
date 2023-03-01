@@ -23,6 +23,9 @@ const NavLinks = ({ clickHandler }) => {
             <Link to='/menu'>
                 <NavLink text={'Menu'} clickHandler={clickHandler}/>
             </Link>
+            {/* <Link to='/admin'>
+                <NavLink text={'Admin'} clickHandler={clickHandler}/>
+            </Link> */}
             <Link to='/card'>
                 <NavLink text={'La carte'} clickHandler={clickHandler}/>
             </Link>

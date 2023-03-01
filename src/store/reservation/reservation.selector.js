@@ -1,4 +1,4 @@
 
 export const getReservationSelector = state => {
-    return state.reservation
+    return state.reservation.days
 }

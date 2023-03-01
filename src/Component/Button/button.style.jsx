@@ -24,3 +24,13 @@ export const InvertedButton = styled(BaseButton)`
         color: #D5CEA3;
     }
 `
+
+export const DeleteButton = styled(BaseButton)`
+    color: red;
+    border: 1px solid red;
+
+    &:hover{
+        background-color: red;
+        color: white;
+    }
+`

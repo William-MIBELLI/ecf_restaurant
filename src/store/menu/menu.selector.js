@@ -1,4 +1,4 @@
 
 export const getMenuSelector = state => {
-    return state.menu
+    return state.menu.menu
 }

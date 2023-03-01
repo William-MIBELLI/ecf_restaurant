@@ -1,21 +1,23 @@
-import { BaseButton, InvertedButton } from './button.style'
+import { BaseButton, InvertedButton, DeleteButton } from './button.style'
 
 export const BUTTON_TYPE = {
     base: 'base',
-    inverted: 'inverted'
+    inverted: 'inverted',
+    delete: 'delete'
 }
 
-const getButton = (style = BUTTON_TYPE.base) => ({
+const getButton = (look = BUTTON_TYPE.base) => ({
     [BUTTON_TYPE.base] : BaseButton,
-    [BUTTON_TYPE.inverted] : InvertedButton
-}[style])
+    [BUTTON_TYPE.inverted] : InvertedButton,
+    [BUTTON_TYPE.delete] : DeleteButton
+}[look])
 
-const Button = ({ children, clickHandler, style }) => {
+const Button = ({ className, children, clickHandler, look }) => {
 
-    const CustomButton = getButton(style)
+    const CustomButton = getButton(look)
 
     return (
-        <CustomButton onClick={clickHandler}>{ children }</CustomButton>
+        <CustomButton className={className} onClick={clickHandler}>{ children }</CustomButton>
     )
 }
 
