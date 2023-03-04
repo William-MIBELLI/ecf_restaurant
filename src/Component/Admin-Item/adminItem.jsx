@@ -64,7 +64,7 @@ const AdminItem = ({ item, type, state }) => {
                 <AdminItemFormContainer onSubmit={onUpdateClick}>
                     <AdminItemForm buttonText={'Mettre à jour'}>
                         {Object.entries(fields).map(([key, val], index) => key !== 'id' && (
-                            <Input type={key === 'price' ? 'number' : 'text'} label={key} name={key} value={val} onChange={onChangeHandler} />
+                            <Input type={key === 'price' ? 'number' : 'text'} disabled={key === 'type'} label={key} name={key} value={val} onChange={onChangeHandler} />
                         ))}
                     </AdminItemForm>
                     {type !== ADMIN_CONTENT_TYPE.SCHEDULE && (

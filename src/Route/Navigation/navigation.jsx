@@ -17,6 +17,7 @@ const Navigation = () => {
     }
 
     const onNavClick = () => {
+        console.log('hideclick ok')
         setIsExpendedNav(false);
     }
 
@@ -32,7 +33,7 @@ const Navigation = () => {
                 <BurgerIcon clickHandler={onBurgerClick}/>
                 { isExpendedNav 
                 ? <NavLinksVerticalContainer>
-                    <NavLinks clickHandler={onNavClick}/>
+                    <NavLinks clickHandler={onNavClick} isVertical={true}/>
                 </NavLinksVerticalContainer> 
                 : null}
             </NavigationContainer>

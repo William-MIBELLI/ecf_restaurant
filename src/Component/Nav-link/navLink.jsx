@@ -1,8 +1,8 @@
 import { NavLinkStyled } from './navLink.style'
 
-const NavLink = ({ text, clickHandler }) => {
+const NavLink = ({ text, clickHandler, mouseIn, mouseOut, className }) => {
     return (
-        <NavLinkStyled onClick={clickHandler}>{text}</NavLinkStyled>
+        <NavLinkStyled className={className} onMouseLeave={mouseOut} onMouseEnter={mouseIn} onClick={clickHandler}>{text}</NavLinkStyled>
     )
 }
 

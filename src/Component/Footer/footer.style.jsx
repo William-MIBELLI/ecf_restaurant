@@ -9,6 +9,7 @@ export const FooterContainer = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: center;
+    z-index: 1;
     @media screen and (max-width: 768px){
         grid-template-columns: 1fr 1fr;
     }

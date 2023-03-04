@@ -8,6 +8,7 @@ import Account from './Route/Account/account';
 import Card from './Route/Card/card';
 import LogIn from './Route/Log-in/logIn';
 import Admin from './Route/Admin/admin';
+import Confirmation from './Route/Confirmation/confirmation';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='account' element={<Account/>}/>
         <Route path='login' element={<LogIn/>}/>
         <Route path='admin' element={<Admin/>}/>
+        <Route path='confirmation' element={<Confirmation/>}/>
       </Route>
     </Routes>
   );

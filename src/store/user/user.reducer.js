@@ -1,7 +1,7 @@
 import { USER_ACTION_TYPE } from "./user.type"
 
 const defaultUser = {
-    
+    name: 'Billy'
 }
 
 export const UserReducer = (state = defaultUser, action) => {

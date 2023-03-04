@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
-export const AdminCategoryContainer = styled.div`
+export const AdminReservationContainer = styled.div`
     margin: 20px auto;
     text-align: center;
     width: 80%;
     box-shadow: 5px 5px 15px grey;
+
     @media screen and (max-width: 768px){
         width: 95%;
     }
 `
-export const AdminCategoryContent = styled.div`
+
+export const AdminReservationContent = styled.div`
 
 `
-export const AdminCategoryHeader = styled.div`
+export const AdminReservationHeader = styled.div`
     min-height: 30px;
     text-align: left;
     padding: 10px;

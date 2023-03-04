@@ -1,9 +1,12 @@
 import { RESERVATION_ACTION_TYPE } from "./reservation.type"
-import { DayReservation } from "../../Services/class"
+import { ServiceReservation } from "../../Services/class"
 import { getFormatedDate } from "../../Services/helper";
+import { Day } from "../../Services/class";
 
-const day = new DayReservation(1, getFormatedDate());
-const day2 = new DayReservation(2, getFormatedDate(1));
+// const day = new ServiceReservation(1, getFormatedDate());
+// const day2 = new ServiceReservation(2, getFormatedDate(1));
+const day = new Day(getFormatedDate())
+const day2 = new Day(getFormatedDate(1))
 const reservationList = {
     days : [day, day2]
 }
@@ -14,16 +17,18 @@ export const Reservationreducer = (state = reservationList, action) => {
     switch(type){
         case RESERVATION_ACTION_TYPE.ADD_NEW_RESERVATION:
             return {
-                ...state,
-                ...payload
+                days: [...payload]
             }
         case RESERVATION_ACTION_TYPE.DELETE_RESERVATION:
             return {
-                ...payload
+                days: [...payload]
             }
         case RESERVATION_ACTION_TYPE.ADD_NEW_DAY:
             return{
-                ...state,
+                days: [...payload]
+            }
+        case RESERVATION_ACTION_TYPE.CONFIRM_RESERVATION:
+            return{
                 days: [...payload]
             }
         default:

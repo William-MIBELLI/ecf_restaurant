@@ -16,6 +16,10 @@ export const NavigationContainer = styled.div`
     a{
         text-decoration: none;
     }
+
+    @media screen and (max-width: 768px){
+        position: relative;
+    }
 `
 
 export const NavLinksContainer = styled.div`
@@ -33,12 +37,13 @@ export const NavLinksVerticalContainer = styled.div`
     position: absolute;
     top: 60px;
     width: 100%;
+    height: auto;
     background-color: black;
     justify-content: center;
     align-items: center;
     
     a{
-        margin: 20px 0;
+        margin: 5px 0;
     }
 `
 

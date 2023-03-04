@@ -34,3 +34,13 @@ export const DeleteButton = styled(BaseButton)`
         color: white;
     }
 `
+
+export const ConfirmButton = styled(BaseButton)`
+    color: green;
+    border: 1px solid green;
+
+    &:hover{
+        background-color: green;
+        color: white;
+    }
+`

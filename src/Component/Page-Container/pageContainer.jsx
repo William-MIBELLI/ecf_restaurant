@@ -1,8 +1,8 @@
 import { StyledPageContainer } from './pageContainer.style'
 
-const PageContainer = ({ children }) => {
+const PageContainer = ({ children, className }) => {
     return (
-        <StyledPageContainer>{children}</StyledPageContainer>
+        <StyledPageContainer className={className}>{children}</StyledPageContainer>
     )
 }
 
