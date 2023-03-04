@@ -15,3 +15,9 @@ export const LogInContainer = styled.div`
         }
     }
 `
+
+export const MailAdressDisplay = styled.span`
+    color: blue;
+    font-weight: 200;
+    font-style: italic;
+`

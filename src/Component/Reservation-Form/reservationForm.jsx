@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { getFormatedDate } from '../../Services/helper'
 import InputSelector from '../Input-Selector/inputSelector'
 import Input from '../Input/input'
@@ -8,13 +8,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getReservationSelector } from '../../store/reservation/reservation.selector'
 import Form from '../Form/form'
 import { useNavigate } from 'react-router-dom'
+import { getCurrentUserSelector } from '../../store/user/user.selector'
 
 
 const defaultFields = {
-    lastName: 'NIEMIRO',
-    firstName: 'William',
-    email: 'william.mibelli@gmail.com',
-    phoneNumber: '06-25-90-01-55',
+    lastName: '',
+    firstName: '',
+    mail: '',
+    phone: '',
     number: 1
 }
 
@@ -26,9 +27,11 @@ const ReservationForm = () => {
     const dispatch = useDispatch()
     const temp = useSelector(getReservationSelector)
     const navigate = useNavigate()
+    const currentUser = useSelector(getCurrentUserSelector)
+    console.log('currentuser depuis reservationform ',currentUser)
     
 
-    const [ fields, setFields ] = useState(defaultFields)
+    const [ fields, setFields ] = useState(Object.keys(currentUser).length ? {...currentUser, number: 1} : defaultFields)
     const [ dateValue, setDateValue ] = useState(today)
 
     const onChangeHandler = (event) => {
@@ -49,13 +52,18 @@ const ReservationForm = () => {
         setDateValue(value)
     }
 
+    useEffect(() => {
+        setFields(Object.keys(currentUser).length ? {...currentUser, number: 1} : defaultFields)
+        console.log('currentuser depuis useeffect ', currentUser)
+    }, [currentUser])
+
     return (
         <ReservationFormContainer>
         <Form submitHandler={confirmHandler} buttonText='Confirmer la réservation'>
             <Input value={fields.lastName} name={'lastName'} label={'Votre nom'} onChange={onChangeHandler}/>
             <Input value={fields.firstName} name={'firstName'} label={'Votre prénom'} onChange={onChangeHandler}/>
-            <Input value={fields.email} name={'email'} label={'Votre Email'} onChange={onChangeHandler}/>
-            <Input value={fields.phoneNumber} name={'phoneNumber'} label={'Votre numéro de téléphone'} onChange={onChangeHandler}/>
+            <Input value={fields.mail} name={'email'} label={'Votre Email'} onChange={onChangeHandler}/>
+            <Input value={fields.phone} name={'phoneNumber'} label={'Votre numéro de téléphone'} onChange={onChangeHandler}/>
             <Input value={fields.number} name={'number'} label={'Nombre de places'} onChange={onChangeHandler}/>
             <Input  label={'Date'} type='date' min={today} max={maxDayReservation} value={dateValue} onChange={dateChangeHandler}/>
             <InputSelector required name={'service'} label={'Horaire'} optionList={optionList} onChange={onChangeHandler}/>

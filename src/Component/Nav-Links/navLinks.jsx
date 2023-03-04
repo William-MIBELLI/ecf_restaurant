@@ -1,27 +1,29 @@
 import { Fragment, useState } from 'react'
 import { } from './navLinks.style'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import NavLink from '../Nav-link/navLink'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserSelector } from '../../store/user/user.selector'
+import { getCurrentUserSelector } from '../../store/user/user.selector'
 import { disconnectUser } from '../../store/user/user.action'
 import AccountDropDown from '../Account-Dropdown/accountDropDown'
+import { signOutUser } from '../../Services/firebase'
 
 const NavLinks = ({ clickHandler, isVertical = false }) => {
 
-    const user = useSelector(getUserSelector)
+    const user = useSelector(getCurrentUserSelector)
     const [ displayAccountDD, setDisplayAccountDD ] = useState(false)
     const dispatch = useDispatch()
-    const isVer = isVertical
-    console.log('isvertical : ', isVer)
-
+    const navigate = useNavigate()
+    
     const accountClickHandler = () => {
         setDisplayAccountDD(!displayAccountDD)
     }
     
     const disconnectClickHandler = () => {
         setDisplayAccountDD(false)
+        signOutUser()
         dispatch(disconnectUser())
+        navigate('/')
     }
     const onMouseInHandler = () => {
         setDisplayAccountDD(true)

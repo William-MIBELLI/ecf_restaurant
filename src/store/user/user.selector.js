@@ -1,5 +1,5 @@
 import { $CombinedState } from "redux"
 
-export const getUserSelector = state => {
-    return state.user
+export const getCurrentUserSelector = state => {
+    return state.user.currentUser
 }

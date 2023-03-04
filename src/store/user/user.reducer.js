@@ -1,7 +1,7 @@
 import { USER_ACTION_TYPE } from "./user.type"
 
 const defaultUser = {
-    name: 'Billy'
+    currentUser: {}
 }
 
 export const UserReducer = (state = defaultUser, action) => {
@@ -10,7 +10,19 @@ export const UserReducer = (state = defaultUser, action) => {
         case USER_ACTION_TYPE.DISCONNECT_USER:
             console.log('on rentre dans le case')
             return{
-                ...payload
+                ...state,
+                currentUser: {}
+            }
+        case USER_ACTION_TYPE.CONNECT_USER:
+            return{
+                ...state,
+                currentUser: {...payload}
+
+            }
+        case USER_ACTION_TYPE.UPDATE_CURRENT_USER:
+            return{
+                ...state,
+                currentUser: {...payload}
             }
         default:
             return state

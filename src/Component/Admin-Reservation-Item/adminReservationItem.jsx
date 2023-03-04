@@ -6,7 +6,7 @@ import { CancelReservation, confirmReservation } from "../../store/reservation/r
 
 const AdminReservationItem = ({ item }) => {
 
-    const { lastName, firstName, email, phoneNumber, number, isConfirmed } = item
+    const { lastName, firstName, mail, phone, number, isConfirmed } = item
     const state = useSelector(getReservationSelector)
     const dispatch = useDispatch()
 
@@ -21,8 +21,8 @@ const AdminReservationItem = ({ item }) => {
         <AdminReservationItemContainer isConfirmed={isConfirmed}>
             <InfoReservation>
                 <div>{`${lastName} ${firstName}`}</div>
-                <div>{email}</div>
-                <div>{phoneNumber}</div>
+                <div>{mail}</div>
+                <div>{phone}</div>
                 <div>Nombre de places : {number}</div>
             </InfoReservation>
             <ButtonsContainer>

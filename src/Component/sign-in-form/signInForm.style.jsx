@@ -6,3 +6,10 @@ export const SignInFormContainer = styled.div`
     text-align: center;
 
 `
+
+export const MessageError = styled.span`
+    color: red;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 10px;
+`
