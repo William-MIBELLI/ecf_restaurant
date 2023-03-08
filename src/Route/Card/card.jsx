@@ -17,7 +17,7 @@ const Card = () => {
         h1: 'Notre Carte',
         title: 'La cuisine du chef',
         subTitle:'Une invitation au voyage, dans le respect des saisons et des produits',
-        content:'Chaque plat est une rencontre personnelle qui se poursuit au-delà de la table par un environnement préservé et une quiétude cultivée. Réserver une table au Jardin de Berne*, c’est faire un deuxième voyage.  Les deux hommes ont à cœur de dévoiler tout le potentiel de chaque ingrédient en imaginant des assiettes aux accords lisibles tout en restant naturels, voire presque bruts. Certains arômes, fragiles et fugaces, sont si subtils qu’ils se savourent presque seuls. Leur noble intention est mise au service d’une expérience de plaisir et de dégustation, sublimée par la maîtrise du geste : une véritable ode à l’incroyable savoir-faire de la nature.'
+        content:'Chaque plat est une rencontre personnelle qui se poursuit au-delà de la table par un environnement préservé et une quiétude cultivée. Réserver une table au Quai antique, c’est faire un deuxième voyage.  Les deux hommes ont à cœur de dévoiler tout le potentiel de chaque ingrédient en imaginant des assiettes aux accords lisibles tout en restant naturels, voire presque bruts. Certains arômes, fragiles et fugaces, sont si subtils qu’ils se savourent presque seuls. Leur noble intention est mise au service d’une expérience de plaisir et de dégustation, sublimée par la maîtrise du geste : une véritable ode à l’incroyable savoir-faire de la nature.'
     }
     
     return (

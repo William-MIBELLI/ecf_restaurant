@@ -18,7 +18,7 @@ const Home = () => {
         h1: 'Le Quai Antique',
         title:'Une expérience gustative singulière et poétique “de l’écorce à l’âme”',
         subTitle:'UNE ÉTOILE AU GUIDE MICHELIN ET UNE ÉTOILE VERTE GASTRONOMIE DURABLE',
-        content: 'Au Jardin de Berne*, les chefs Louis Rameau et Eric Raynal cherchent une vérité cachée dans chaque ingrédient pour créer des associations nouvelles, des accords inédits, des textures surprenantes tout en respectant l’intention initiale portée par la nature.“ Nous travaillons l’entièreté du produit. Un choix pour nous approcher davantage de son intimité… et une vraie source d’inspiration, pour une table renouvelée au gré des saisons ”, souligne Louis Rameau. '
+        content: 'Au Quai Antique, les chefs Martin Dugenoux et Eric Kebab cherchent une vérité cachée dans chaque ingrédient pour créer des associations nouvelles, des accords inédits, des textures surprenantes tout en respectant l’intention initiale portée par la nature.“ Nous travaillons l’entièreté du produit. Un choix pour nous approcher davantage de son intimité… et une vraie source d’inspiration, pour une table renouvelée au gré des saisons ”, souligne Louis Elcastor. '
     }
 
 
@@ -41,7 +41,7 @@ const Home = () => {
                             title='La cuisine du chef'
                             subTitle='La magie du naturel'
                             content='
-                            Chaque plat est une rencontre personnelle qui se poursuit au-delà de la table par un environnement préservé et une quiétude cultivée. Réserver une table au Jardin de Berne*, c’est faire un deuxième voyage.  Les deux hommes ont à cœur de dévoiler tout le potentiel de chaque ingrédient en imaginant des assiettes aux accords lisibles tout en restant naturels, voire presque bruts. '
+                            Chaque plat est une rencontre personnelle qui se poursuit au-delà de la table par un environnement préservé et une quiétude cultivée. Réserver une table au Quai Antique, c’est faire un deuxième voyage.  Les deux hommes ont à cœur de dévoiler tout le potentiel de chaque ingrédient en imaginant des assiettes aux accords lisibles tout en restant naturels, voire presque bruts. '
                         />
                         <Button clickHandler={clickCardHandler}>La carte</Button>
                     </LunchSideContainer>

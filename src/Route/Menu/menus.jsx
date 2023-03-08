@@ -15,7 +15,7 @@ const Menus = () => {
         h1: 'Nos Menus',
         title: 'Des combinaisons raffinées',
         subTitle: 'Un assortiment de plats mûrement réfléchis, afin de vous offrir le meilleur de nos cuisines',
-        content: 'Le restaurant gastronomique vous propose une carte des vins très riche représentant toutes les régions de France et quelques vins étrangers aussi. Elle fait bien sûr la part belle aux vins de notre belle région et aux Côtes de Provence, blanc, rouge ou rosé, du Domaine du Château de Berne.'
+        content: 'Le restaurant gastronomique vous propose une carte des vins très riche représentant toutes les régions de France et quelques vins étrangers aussi. Elle fait bien sûr la part belle aux vins de notre belle région et aux Côtes de Provence, blanc, rouge ou rosé, du Domaine du Château.'
     }
 
     return (

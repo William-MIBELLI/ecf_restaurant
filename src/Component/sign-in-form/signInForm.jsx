@@ -5,6 +5,7 @@ import Form from '../Form/form'
 import { getUserInfo, signInWithMail } from '../../Services/firebase'
 import { useDispatch } from 'react-redux'
 import { connectUser } from '../../store/user/user.action'
+import { escapeHtml } from '../../Services/helper'
 
 const defaultFields = {
     mail: '',
@@ -27,9 +28,10 @@ const SignInForm = () => {
     const signIn = async ( event ) => {
 
         event.preventDefault()
-
+        const securedMail = escapeHtml(mail)
+        const securedPassword = escapeHtml(password)
         try{
-            const response = await signInWithMail(mail, password)
+            const response = await signInWithMail(securedMail, securedPassword)
             if(response){
                 console.log('response : ', response)
                 const userInfo = await getUserInfo(response.user.uid)
