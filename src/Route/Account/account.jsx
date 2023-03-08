@@ -1,6 +1,5 @@
 import { Fragment, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getReservationSelector } from "../../store/reservation/reservation.selector"
 import Header from '../../Component/Header/header'
 import PageContainer from '../../Component/Page-Container/pageContainer'
 import { getCurrentUserSelector } from "../../store/user/user.selector"
@@ -12,11 +11,12 @@ import { useNavigate } from "react-router-dom"
 
 const Account = () => {
 
-    const reservation = useSelector(getReservationSelector)
+
     const currentUser = useSelector(getCurrentUserSelector)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [ fields, setFields ] = useState(currentUser)
+    const [ errorFields, setErrorFields ] = useState('')
     const headerContent = {
         imgUrl: 'https://images.unsplash.com/photo-1471253794676-0f039a6aae9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
         h1: 'Gestion de votre compte',
@@ -30,14 +30,23 @@ const Account = () => {
         setFields({...fields, [name]: value})
     }    
 
+    const checkForm = (fields) => {
+        return Object.values(fields).every(item => item.trim() !== '')
+    }
+
     const onSubmitHandler = async (event) => {
         event.preventDefault()
-        console.log('on rentre dans submitHandler : ', fields)
-        const resp = await updateUserInfo(currentUser.uid, fields)
-        console.log('resp : ', resp)
-        if(resp === undefined){
+
+        if(!checkForm(fields)){
+            return setErrorFields('Vous devez renseigner tous les champs')
+        }
+        try{
+            setErrorFields('')
+            await updateUserInfo(currentUser.uid, fields)
             dispatch(updateCurrentUser({...fields, uid: currentUser.uid}))
             navigate('/confirmation')
+        } catch(error){
+            setErrorFields('Une erreur s\'est produite')
         }
     }
 
@@ -53,6 +62,9 @@ const Account = () => {
                 </Form>
             ) : (
                 <h3>Vous n'êtes pas connecté</h3>
+            )}
+            {errorFields !== '' && (
+                <p>{errorFields}</p>
             )}
             </PageContainer>
         </Fragment>

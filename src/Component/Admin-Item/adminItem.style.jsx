@@ -21,10 +21,12 @@ export const AdminItemForm = styled(Form)`
     flex-direction: row;
     justify-content: space-evenly;
     width: auto;
+
     @media screen and (max-width: 1100px){
         flex-direction: column;
         margin-bottom: 10px;
     }
+    
 `
 export const AdminItemFormContainer = styled.div`
     display: grid;

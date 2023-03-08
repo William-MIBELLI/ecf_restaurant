@@ -8,13 +8,16 @@ import { useDispatch } from 'react-redux'
 import { removeMenu, updateMenu } from '../../store/menu/menu.action'
 import { removePlate, updatePlate } from '../../store/card/card.action'
 import { updateDay } from '../../store/schedule/schedule.action'
+import { deleteDataFromDb, updateDataFromDb } from '../../Services/firebase'
+import ErrorMessage from '../Error-Message/errorMessage'
 
 
 const AdminItem = ({ item, type, state }) => {
 
     const [ displayItem, setDisplayItem ] = useState(false)
     const [ fields, setFields] = useState({...item})
-    const { name } = item
+    const [ error, setError ] = useState('')
+    const { name, id } = item
     const dispatch = useDispatch()
 
     const onClickhandler = () => {
@@ -26,28 +29,53 @@ const AdminItem = ({ item, type, state }) => {
         setFields({...fields, [name]: value})
     }
 
-    const onDeleteClick = (event) => {
+    const onDeleteClick = async () => {
         if(window.confirm('etes vous sûr ?')){
             switch(type){
                 case ADMIN_CONTENT_TYPE.MENU:
-                    return dispatch(removeMenu(state, fields))
+                    try{
+                        await deleteDataFromDb('menus', id)
+                        return dispatch(removeMenu(state, fields))
+                    }catch(error){
+                        return setError('Une erreur s\'est produite')
+                    }
                 case ADMIN_CONTENT_TYPE.PLATE:
-                    return dispatch(removePlate(state, fields))
+                    try{
+                        await deleteDataFromDb('card', id)
+                        return dispatch(removePlate(state, fields))
+                    }catch(error){
+                        return setError('Une erreur s\'est produite')
+                    }
                 default:
-                    return false
+                    return setError('Une erreur s\'est produite')
             }       
         }
     }
 
-    const onUpdateClick = (event) => {
+    const onUpdateClick = async (event) => {
         event.preventDefault()
         console.log('update click OK')
         switch(type){
             case ADMIN_CONTENT_TYPE.MENU:
+                try{
+                    await updateDataFromDb('menus', fields, id)
+                }catch(error){
+                    console.log('erreur depuis admin : ', error)
+                }
                 return dispatch(updateMenu(state, fields))
             case ADMIN_CONTENT_TYPE.PLATE:
+                try{
+                    await updateDataFromDb('card', fields, id)
+                }catch(error){
+                    console.log('erreur : ', error)
+                }
                 return dispatch(updatePlate(state, fields))
             case ADMIN_CONTENT_TYPE.SCHEDULE:
+                try{
+                    await updateDataFromDb('schedule', fields, id)
+                }catch(error){
+                    console.log('erreur : ', error)
+                }
                 return dispatch(updateDay(state, fields))
             default:
                 return false
@@ -72,6 +100,9 @@ const AdminItem = ({ item, type, state }) => {
                     )}
                 </AdminItemFormContainer>
 
+            )}
+            {error !== '' && (
+                <ErrorMessage>{error}</ErrorMessage>
             )}
         </AdminItemContainer>
     )

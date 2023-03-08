@@ -21,3 +21,7 @@ export const removePlate = (state, plateToRemove) => {
 
     return createAction(CARD_ACTION_TYPE.REMOVE_PLATE, newState)
 }
+
+export const initializeCard = (card) => {
+    return createAction(CARD_ACTION_TYPE.INITIALIZE_CARD, card)
+}

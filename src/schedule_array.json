@@ -1,35 +1,42 @@
 [
     {
+        "id": "1",
         "name": "Lundi",
         "lunch": "11h30 - 13h30",
         "dinner": "19h00 - 21h30"
     },
     {
+        "id": "2",
         "name": "Mardi",
         "lunch": "11h30 - 13h30",
         "dinner": "19h00 - 21h30"
     },
     {
+        "id": "3",
         "name": "Mercredi",
         "lunch": "FERME",
         "dinner": "FERME"
     },
     {
+        "id": "4",
         "name": "Jeudi",
         "lunch": "11h30 - 13h30",
         "dinner": "19h00 - 21h30"
     },
     {
+        "id": "5",
         "name": "Vendredi",
         "lunch": "11h30 - 13h30",
         "dinner": "19h00 - 21h30"
     },
     {
+        "id": "6",
         "name": "Samedi",
         "lunch": "11h30 - 13h30",
         "dinner": "19h00 - 21h30"
     },
     {
+        "id": "7",
         "name": "Dimanche",
         "lunch": "11h30 - 13h30",
         "dinner": "FERME"

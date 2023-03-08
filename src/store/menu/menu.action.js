@@ -2,7 +2,6 @@ import { createAction } from "../../Services/helper"
 import { MENU_ACTION_TYPE } from "./menu.type"
 
 export const addNewMenu = (state, menuToAdd) => {
-    console.log('addNewmenu')
     const newMenu = [...state, menuToAdd]
     return createAction(MENU_ACTION_TYPE.ADD_NEW_MENU, newMenu)
 }
@@ -20,4 +19,8 @@ export const updateMenu = (state, menuToUpdate) => {
         return menu.id === menuToUpdate.id ? menuToUpdate : menu;
     })
     return createAction(MENU_ACTION_TYPE.UPDATE_EXISTING_MENU, newState)
+}
+
+export const initializeMenu = (menu) => {
+    return createAction(MENU_ACTION_TYPE.INITIALIZE_MENU, menu)
 }

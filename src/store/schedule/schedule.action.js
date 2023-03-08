@@ -8,3 +8,7 @@ export const updateDay = (state, dayToUpdate) => {
 
     return createAction(SCHEDULE_ACTION_TYPE.UPDATE_DAY, newState)
 }
+
+export const initializeSchedule = (schedule) => {
+    return createAction(SCHEDULE_ACTION_TYPE.INITIALIZE_SCHEDULE, schedule)
+}

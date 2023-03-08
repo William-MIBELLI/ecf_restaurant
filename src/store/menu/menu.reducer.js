@@ -1,7 +1,18 @@
-import menu from '../../menu_array.json'
 import { MENU_ACTION_TYPE } from './menu.type'
 
-export const MenuReducer = (state = {menu: menu}, action) => {
+const defaultMenu = {
+    menu: [
+        {
+            id: '',
+            name: '',
+            description: '',
+            price: '',
+            availability: ''
+        }
+    ]
+}
+
+export const MenuReducer = (state = defaultMenu, action) => {
 
     const { type, payload } = action
 
@@ -15,6 +26,10 @@ export const MenuReducer = (state = {menu: menu}, action) => {
                 menu: [...payload]
             }
         case MENU_ACTION_TYPE.REMOVE_MENU:
+            return{
+                menu: [...payload]
+            }
+        case MENU_ACTION_TYPE.INITIALIZE_MENU:
             return{
                 menu: [...payload]
             }

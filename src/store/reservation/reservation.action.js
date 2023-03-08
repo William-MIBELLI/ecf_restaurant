@@ -1,17 +1,29 @@
 import { Day } from "../../Services/class";
+import { addNewDayOnDb, pushData } from "../../Services/firebase";
 import { createAction } from "../../Services/helper";
 import { RESERVATION_ACTION_TYPE } from "./reservation.type";
 
 
-
-export const addNewReservation = (state, reservation) => {
+export const checkIfDayExists =async (state, reservation) => {
 
     const existingDay = state.find(day => day.date === reservation.dateValue)
 
     if(!existingDay){
         const newDay = new Day(reservation.dateValue)
-        state.push(newDay)
+        try{
+            await addNewDayOnDb(newDay)
+        }catch(error){
+            console.log(error)
+            return false
+        }
     }
+
+    return true
+}
+
+
+
+export const addNewReservation = (state, reservation) => {
 
     const temp = state.map(day => {
 

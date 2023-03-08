@@ -1,4 +1,5 @@
 
 export const getScheduleSelector = state => {
-    return state.schedule.schedule
+    const sortSchedule =  state.schedule.schedule.sort((a,b) => a.id + b.id)
+    return sortSchedule
 }

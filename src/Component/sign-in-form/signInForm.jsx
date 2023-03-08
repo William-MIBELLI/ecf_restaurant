@@ -23,18 +23,15 @@ const SignInForm = () => {
         setFields({...fields, [name]: value})
     }
 
-    const onSubmitHandler = (event) => {
-        event.preventDefault()
-        console.log('submit connexion ok')
-    }
 
     const signIn = async ( event ) => {
+
         event.preventDefault()
-        console.log('on rentre dans signin dans form')
+
         try{
             const response = await signInWithMail(mail, password)
-            console.log('response : ',response)
             if(response){
+                console.log('response : ', response)
                 const userInfo = await getUserInfo(response.user.uid)
                 if(userInfo){
                     dispatch(connectUser(userInfo))
@@ -42,7 +39,7 @@ const SignInForm = () => {
                 }
             }
         } catch (error){
-            console.log('une erreur s\'est produite ', error)
+            console.log('une erreur s\'est produite ')
             setConnectionFailed(true)
         }
     }

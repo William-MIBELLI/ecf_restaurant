@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
-import { getFirestore, doc, getDoc, setDoc, query, getDocs, collection, updateDoc } from 'firebase/firestore'
+import { getFirestore, doc, getDoc, setDoc, query, getDocs, collection, updateDoc, writeBatch, deleteDoc, where, arrayUnion } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAAsTpNvOUZyDe8Ip61RWDoAS7pVD1_YWk",
@@ -40,14 +40,12 @@ export const getUserInfo = async (uid) => {
 
 export const updateUserInfo = async (uid, updatedUser) =>{
   const { firstName, lastName, phone } = updatedUser
-  console.log('on rentre dans updateUserInfo, uid : ',)
   const userRef = doc(db, 'users', uid)
-  const response = await updateDoc(userRef, {
+  await updateDoc(userRef, {
     firstName: firstName,
     lastName: lastName,
     phone: phone
   })
-  console.log('response de update : ', response)
 }
 
 export const signInWithMail = async (email, password) => {
@@ -60,11 +58,10 @@ export const signInWithMail = async (email, password) => {
 }
 
 export const createUserWithMail = async (email, password) => {
-  console.log('creation dans firebase')
+
   if(email === '' || password === ''){
     return
   }
-
   return createUserWithEmailAndPassword(auth, email, password)
 }
 
@@ -73,3 +70,66 @@ export const signOutUser = () => signOut(auth)
 export const authStateListener = (callback) => {
   return onAuthStateChanged(auth, callback)
 }
+
+export const pushData = async (collectionName, dataToPush = []) => {
+
+  const collectionRef = collection(db, collectionName)
+  const batch = writeBatch(db)
+
+  dataToPush.forEach(item => {
+    const docRef = doc(collectionRef, item.id.toString())
+    batch.set(docRef, {...item})
+  })
+
+  const response = await batch.commit()
+  return response
+}
+
+export const addNewDayOnDb = async (dayToAdd) => {
+  const { date } = dayToAdd
+  const collectionRef = doc(db, 'reservations', date)
+  await setDoc(collectionRef, {...dayToAdd})
+}
+
+export const addReservationOnDb = async (reservationToAdd, date, service) => {
+  console.log('1')
+  const docRef = doc(db, 'reservations', date)
+  console.log('2')
+  await updateDoc(docRef,{
+    [service]: {
+      reservationArray: arrayUnion(reservationToAdd)
+    }
+  })
+  console.log('3')
+}
+
+export const getdataFromDb = async (collectionName) => {
+
+  const querySnapShot = await getDocs(collection(db, collectionName))
+  const response = []
+
+  querySnapShot.forEach(doc => {
+    response.push(doc.data())
+  })
+  
+  return response
+}
+
+export const deleteDataFromDb = async (collectionName, docToDelete) => {
+
+  const docRef = doc(db,collectionName, docToDelete.toString())
+
+  const response = await deleteDoc(docRef) 
+  return response
+}
+
+export const updateDataFromDb = async (collectionName, docToUpdate, id) => {
+  const docRef = doc(db, collectionName, id.toString())
+  await updateDoc(docRef,{...docToUpdate})
+  .then(response => console.log(response))
+  .catch(error => console.log(error))
+
+}
+
+
+
