@@ -14,12 +14,12 @@ const getButton = (look = BUTTON_TYPE.base) => ({
     [BUTTON_TYPE.confirm] : ConfirmButton
 }[look])
 
-const Button = ({ className, children, clickHandler, look = BUTTON_TYPE.base }) => {
+const Button = ({ className, children, clickHandler, look = BUTTON_TYPE.base, ...otherProps }) => {
 
     const CustomButton = getButton(look)
 
     return (
-        <CustomButton className={className} onClick={clickHandler}>{ children }</CustomButton>
+        <CustomButton {...otherProps} className={className} onClick={clickHandler}>{ children }</CustomButton>
     )
 }
 

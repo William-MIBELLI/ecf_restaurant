@@ -3,16 +3,11 @@ import AdminReservationItem from '../Admin-Reservation-Item/adminReservationItem
 import AdminServiceDetails from '../Admin-Service-Details/adminServiceDetails'
 import { AdminReservationDayContainer, AdminReservationDayHeader, ServiceNameContainer } from './adminReservationDay.style'
 
-const AdminReservationDay = ({ day }) => {
+const AdminReservationDay = ({ day, date }) => {
 
-    const {  date } = day
+
     const [ displayContent, setDisplayContent ] = useState(false)
     const [ serviceToDisplay, setServiceToDisplay ] = useState('')
-    const nBReservationMidi = day['Midi'].reservationArray.length
-    const nBReservationSoir = day['Soir'].reservationArray.length
-    const placeLeftMidi = day['Midi'].placeLeft
-    const placeLeftSoir = day['Soir'].placeLeft
-
 
     const onClickServiceHandler = (event, id) => {
 
@@ -30,11 +25,11 @@ const AdminReservationDay = ({ day }) => {
             <AdminReservationDayHeader>
                 {date}
             </AdminReservationDayHeader>
-            <ServiceNameContainer>
-                <AdminServiceDetails isSelected={serviceToDisplay === 'Midi'} serviceName='Midi' onClickHandler={onClickServiceHandler} nbReservation={nBReservationMidi} placeLeft={placeLeftMidi}/>
-                <AdminServiceDetails isSelected={serviceToDisplay === 'Soir'} serviceName={'Soir'} onClickHandler={onClickServiceHandler} nbReservation={nBReservationSoir} placeLeft={placeLeftSoir}/>
+            <ServiceNameContainer> 
+            <AdminServiceDetails serviceName={'Midi'} date={date} onClickHandler={onClickServiceHandler} isSelected={serviceToDisplay === 'Midi'}/>
+            <AdminServiceDetails serviceName={'Soir'} date={date} onClickHandler={onClickServiceHandler} isSelected={serviceToDisplay === 'Soir'}/>
             </ServiceNameContainer>
-            {displayContent && day[serviceToDisplay].reservationArray.map(item => (
+            {displayContent && day.map(item => item.service === serviceToDisplay && (
                 <AdminReservationItem item={item}/>
             ))}
         </AdminReservationDayContainer>

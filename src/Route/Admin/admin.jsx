@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getMenuSelector } from '../../store/menu/menu.selector'
 import { getScheduleSelector } from '../../store/schedule/schedule.selector'
 import { getCardSelector } from '../../store/card/card.selector'
@@ -13,8 +13,9 @@ import cardArray from '../../card_array.json'
 import scheduleArray from '../../schedule_array.json'
 import { getdataFromDb, pushData } from '../../Services/firebase'
 import { getCurrentUserSelector } from '../../store/user/user.selector'
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import ErrorMessage from '../../Component/Error-Message/errorMessage'
+import { fetchReservationFromDb } from '../../store/reservation/reservation.action'
 
 export const ADMIN_CONTENT_TYPE = {
     MENU: 'MENU',
@@ -28,8 +29,10 @@ const Admin = () => {
     const menus = useSelector(getMenuSelector)
     const plates = useSelector(getCardSelector)
     const schedule = useSelector(getScheduleSelector)
-    const reservations = useSelector(getReservationSelector)
     const currentUser = useSelector(getCurrentUserSelector)
+    const [ reservations, setReservations ] = useState(undefined)
+    const dispatch = useDispatch()
+    
 
     const onPushData = async (collectionName, dataToPush) => {
         console.log('data dans onpushdata : ', dataToPush)
@@ -49,6 +52,19 @@ const Admin = () => {
             console.log('erreur : ', error)
         }
     }
+    useEffect(() => {
+        const callDb = async () => {
+            const resp = await getdataFromDb('reservations')
+            setReservations(resp)
+            dispatch(fetchReservationFromDb(resp))
+            
+        }
+        callDb()
+    },[])
+
+    useEffect(()=> {
+        console.log('reservation depuis eseffect : ', reservations)
+    },[reservations])
 
     return (
         <PageContainer>

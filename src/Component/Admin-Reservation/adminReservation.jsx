@@ -6,7 +6,7 @@ import { AdminReservationContainer,
         TitleContainer } from './adminReservation.style'
 import arrow from '../../Asset/Icons/arrow.png'
 import { useSelector } from 'react-redux'
-import { getReservationSelector } from '../../store/reservation/reservation.selector'
+import { getReservationSelector, getReservationSplittedByDay } from '../../store/reservation/reservation.selector'
 import { useState } from 'react'
 import AdminReservationDay from '../Admin-Reservation-Day/adminReservationDay'
 
@@ -15,6 +15,9 @@ import AdminReservationDay from '../Admin-Reservation-Day/adminReservationDay'
 const AdminReservation = () => {
 
     const reservationsArray = useSelector(getReservationSelector)
+    console.log('reser depuis adminreservation : ', reservationsArray)
+    const sortedResa = useSelector(getReservationSplittedByDay)
+    console.log('sorted resa : ', sortedResa)
     const [ displayContent, setDisplayContent ] = useState(false)
 
     const onArrowClick = () => {
@@ -30,7 +33,7 @@ const AdminReservation = () => {
                 </IconContainer>
             </AdminReservationHeader>
             <AdminReservationContent>
-                {displayContent && reservationsArray.map(day => ( <AdminReservationDay day={day}/>))}
+                {displayContent && Object.entries(sortedResa).map(([date,day]) => ( <AdminReservationDay day={day} date={date}/>))}
             </AdminReservationContent>
         </AdminReservationContainer>
     )

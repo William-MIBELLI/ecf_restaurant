@@ -3,19 +3,30 @@ import Button, { BUTTON_TYPE } from '../Button/button'
 import { useDispatch, useSelector } from 'react-redux'
 import { getReservationSelector } from "../../store/reservation/reservation.selector"
 import { CancelReservation, confirmReservation } from "../../store/reservation/reservation.action"
+import { cancelReservationOnDb, confirmResevationOnDb } from "../../Services/firebase"
 
 const AdminReservationItem = ({ item }) => {
 
-    const { lastName, firstName, mail, phone, number, isConfirmed } = item
+    const { lastName, firstName, mail, phone, number, isConfirmed, id } = item
     const state = useSelector(getReservationSelector)
     const dispatch = useDispatch()
 
-    const confirmHandler = () => {
-        dispatch(confirmReservation(state, item))
+    const confirmHandler = async  () => {
+        try{
+            await confirmResevationOnDb(id)
+            dispatch(confirmReservation(state, item))
+        }catch(error){
+            console.log('error : ', error)
+        }
     }
 
-    const cancelHandler = () => {
-        dispatch(CancelReservation(state, item))
+    const cancelHandler = async () => {
+        try{
+            await cancelReservationOnDb(id)
+            dispatch(CancelReservation(state,item))
+        }catch(error){
+            console.log('error : ', error)
+        }
     }
     return (
         <AdminReservationItemContainer isConfirmed={isConfirmed}>

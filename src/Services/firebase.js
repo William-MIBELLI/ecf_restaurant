@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
-import { getFirestore, doc, getDoc, setDoc, query, getDocs, collection, updateDoc, writeBatch, deleteDoc, where, arrayUnion } from 'firebase/firestore'
+import { getFirestore, doc, getDoc, setDoc, query, getDocs, collection, updateDoc, writeBatch, deleteDoc, where } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAAsTpNvOUZyDe8Ip61RWDoAS7pVD1_YWk",
@@ -49,7 +49,6 @@ export const updateUserInfo = async (uid, updatedUser) =>{
 }
 
 export const signInWithMail = async (email, password) => {
-  console.log('sign in dans firebase')
   if(email === '' || password === ''){
     return
   }
@@ -85,22 +84,22 @@ export const pushData = async (collectionName, dataToPush = []) => {
   return response
 }
 
-export const addNewDayOnDb = async (dayToAdd) => {
-  const { date } = dayToAdd
-  const collectionRef = doc(db, 'reservations', date)
-  await setDoc(collectionRef, {...dayToAdd})
+export const confirmResevationOnDb = async (reservationId) => {
+  const docRef = doc(db, 'reservations', reservationId.toString())
+  await updateDoc(docRef,{
+    isConfirmed: true
+  })
 }
 
-export const addReservationOnDb = async (reservationToAdd, date, service) => {
-  console.log('1')
-  const docRef = doc(db, 'reservations', date)
-  console.log('2')
-  await updateDoc(docRef,{
-    [service]: {
-      reservationArray: arrayUnion(reservationToAdd)
-    }
-  })
-  console.log('3')
+export const addReservationOnDb = async (reservationToAdd, id) => {
+  const docRef = doc(db,'reservations', id.toString())
+  await setDoc(docRef,reservationToAdd)
+
+}
+
+export const cancelReservationOnDb = async (id) => {
+  const docRef = doc(db, 'reservations', id.toString())
+  await deleteDoc(docRef)
 }
 
 export const getdataFromDb = async (collectionName) => {
@@ -111,8 +110,23 @@ export const getdataFromDb = async (collectionName) => {
   querySnapShot.forEach(doc => {
     response.push(doc.data())
   })
-  
+
   return response
+}
+
+export const getPlaceLeftFromDb = async (date, service) => {
+
+  const q = query(collection(db, 'reservations'),where('date', '==', date),where('service','==', service))
+  const querySnapShot = await getDocs(q)
+  const resp = []
+
+  querySnapShot.forEach(item => {
+    resp.push(item.data())
+  })
+
+  const placeLeft = resp.reduce((total, current) => Number(total) + Number(current.number),0)
+
+  return 50 - placeLeft
 }
 
 export const deleteDataFromDb = async (collectionName, docToDelete) => {
