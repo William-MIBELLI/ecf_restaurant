@@ -35,17 +35,14 @@ const NavLinks = ({ clickHandler, isVertical = false }) => {
 
     return (
         <Fragment>
-            <Link to='/'>
-                <NavLink text={'Accueil'} clickHandler={clickHandler}/>
-            </Link>
-            <Link to='/menu'>
-                <NavLink text={'Menu'} clickHandler={clickHandler}/>
-            </Link>
-            {user.mail === 'william.mibelli@gmail.com' && (
+            {user.mail === 'test@admin.com' && (
                 <Link to='/admin'>
                     <NavLink text={'Admin'} clickHandler={clickHandler}/>
                 </Link>
             )}
+            <Link to='/menu'>
+                <NavLink text={'Menu'} clickHandler={clickHandler}/>
+            </Link>
             <Link to='/card'>
                 <NavLink text={'La carte'} clickHandler={clickHandler}/>
             </Link>

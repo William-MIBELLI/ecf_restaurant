@@ -68,7 +68,7 @@ const Admin = () => {
 
     return (
         <PageContainer>
-        {currentUser.mail === 'william.mibelli@gmail.com' ? (
+        {currentUser.mail === 'test@admin.com' ? (
             <Fragment>
                 <AdminCategory title={'Les menus'} content={menus} creationButton={true} type={ADMIN_CONTENT_TYPE.MENU}/>
                 <AdminCategory title={'La carte'} content={plates} creationButton={true} type={ADMIN_CONTENT_TYPE.PLATE}/>
